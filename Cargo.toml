@@ -1,0 +1,57 @@
+[workspace]
+members  = [ "flub-derive" ]
+resolver = "3"
+
+[workspace.package]
+version      = "0.1.0"
+edition      = "2024"
+rust-version = "1.88.0"
+license      = "EUPL-1.2"
+repository   = "https://github.com/manic-systems/flub"
+keywords     = [ "error", "error-handling", "derive", "thiserror" ]
+categories   = [ "rust-patterns", "no-std" ]
+
+[package]
+name                   = "flub"
+description            = "A zero-dependency derive(Error)"
+version.workspace      = true
+edition.workspace      = true
+rust-version.workspace = true
+license.workspace      = true
+repository.workspace   = true
+keywords.workspace     = true
+categories.workspace   = true
+readme                 = "README.md"
+include                = [ "src", "README.md", "LICENSE" ]
+
+[features]
+default = [ "std" ]
+provide = [ "flub-derive/provide" ]
+std     = [  ]
+
+[dependencies]
+flub-derive = { path = "flub-derive", version = "=0.1.0" }
+
+[dev-dependencies]
+thiserror = "2.0.20"
+
+[lints]
+workspace = true
+
+[workspace.lints.clippy]
+blanket_clippy_restriction_lints = "allow"
+
+cargo       = { level = "warn", priority = -1 }
+nursery     = { level = "warn", priority = -1 }
+pedantic    = { level = "warn", priority = -1 }
+restriction = { level = "warn", priority = -1 }
+
+arbitrary_source_item_ordering = "allow"
+arithmetic_side_effects        = "allow"
+else_if_without_else           = "allow"
+implicit_return                = "allow"
+missing_trait_methods          = "allow"
+question_mark_used             = "allow"
+ref_patterns                   = "allow"
+separated_literal_suffix       = "allow"
+single_call_fn                 = "allow"

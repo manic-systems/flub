@@ -1,0 +1,20 @@
+[package]
+name                   = "flub-derive"
+description            = "The derive behind flub"
+version.workspace      = true
+edition.workspace      = true
+rust-version.workspace = true
+license.workspace      = true
+repository.workspace   = true
+keywords.workspace     = true
+categories             = [ "development-tools::procedural-macro-helpers" ]
+readme                 = "../README.md"
+
+[lib]
+proc-macro = true
+
+[features]
+provide = [  ]
+
+[lints]
+workspace = true
